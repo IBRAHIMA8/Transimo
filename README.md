@@ -35,15 +35,15 @@ Rails 6.0.4.8
 [Table Definition]https://docs.google.com/spreadsheets/d/1DJc81rEL8fgyWJe6kEpKLCTtImtJ-GNld9s66XzKvgE/edit?usp=sharing)
 
 ## ER Diagram
-[ER Diagram](https://drive.google.com/file/d/1R9jsH0x3CkbGAlppcnossTA82c5Ndd5O/view?usp=sharing)
+[ER Diagram](https://drive.google.com/file/d/1R9jsH0x3CkbGAlppcnossTA82c5Ndd5O/view?usp=sharing)<br>
 ![ER Diagram picture](<img src="/ER.png">)
 
 
 ## Screen transition diagram
-[screen transition](https://drive.google.com/file/d/1RSg5uVFGRnVSA97wXUH9u4e-rYHVYiQ1/view?usp=sharing)
+[screen transition](https://drive.google.com/file/d/1RSg5uVFGRnVSA97wXUH9u4e-rYHVYiQ1/view?usp=sharing)<br>
 ![screen transition picture](<img src="/Transition.png">)
 
 
 ## Wireframe
-[Wireframe](https://drive.google.com/file/d/1qvgIaae4-7T3Li_hBAJFpvnVwib2k91Q/view?usp=sharing)
+[Wireframe](https://drive.google.com/file/d/1qvgIaae4-7T3Li_hBAJFpvnVwib2k91Q/view?usp=sharing)<br>
 ![Wireframe picture](<img src="/Wireframe.png">)

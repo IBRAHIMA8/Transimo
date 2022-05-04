@@ -26,13 +26,13 @@ Rails 6.0.4.8
 > $ rails s -b 0.0.0.0 (For Vagrant users)
 
 ## Checksheet
-[Checksheet](https://docs.google.com/spreadsheets/d/1DJc81rEL8fgyWJe6kEpKLCTtImtJ-GNld9s66XzKvgE/edit?usp=sharing)
+[Checksheet](https://docs.google.com/spreadsheets/d/1qmZAqBF2tuXCf04Z9btdsJBcBosX_RMnT6tko0v6LoA/edit?usp=sharing)
 
 ## Catalogue Design
-[Catalogue Design](https://docs.google.com/spreadsheets/d/1DJc81rEL8fgyWJe6kEpKLCTtImtJ-GNld9s66XzKvgE/edit?usp=sharing)
+[Catalogue Design](https://docs.google.com/spreadsheets/d/1DF_Ckj12vljzxptYd9rx6wh9R7rhRGhs1UXOHpzKtG0/edit?usp=sharing)
 
 ## Table Definition
-[Table Definition](https://docs.google.com/spreadsheets/d/1DJc81rEL8fgyWJe6kEpKLCTtImtJ-GNld9s66XzKvgE/edit?usp=sharing)
+[Table Definition](https://docs.google.com/spreadsheets/d/15RLani9iNNhnsPBu5qw8XenYsIGYRLzRQ1a5Ij6LsBQ/edit?usp=sharing)
 
 ## ER Diagram
 [ER Diagram](https://drive.google.com/file/d/1R9jsH0x3CkbGAlppcnossTA82c5Ndd5O/view?usp=sharing)<br />
@@ -45,5 +45,5 @@ Rails 6.0.4.8
 
 
 ## Wireframe
-[Wireframe](https://drive.google.com/file/d/1qvgIaae4-7T3Li_hBAJFpvnVwib2k91Q/view?usp=sharing)<br />
+[Wireframe](https://drive.google.com/file/d/1qvgIaae4-7T3Li_hBAJFpvnVwib2k91Q/view?usp=sharing)<br>
 ![Wireframe picture](./public/Wireframe.png)

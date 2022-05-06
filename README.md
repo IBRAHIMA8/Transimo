@@ -32,14 +32,14 @@ Rails 6.0.4.8
 
 ## ER Diagram
 [ER Diagram](https://drive.google.com/file/d/1R9jsH0x3CkbGAlppcnossTA82c5Ndd5O/view?usp=sharing)<br />
-![ER Diagram picture](./public/ER.png)
+![ER Diagram picture](./public/Tansimo ER.png)
 
 
 ## Screen transition diagram
 [screen transition](https://drive.google.com/file/d/1RSg5uVFGRnVSA97wXUH9u4e-rYHVYiQ1/view?usp=sharing)<br />
-![screen transition picture](./public/Transition.png)
+![screen transition picture](./public/Transimo TD.png)
 
 
 ## Wireframe
 [Wireframe](https://drive.google.com/file/d/1qvgIaae4-7T3Li_hBAJFpvnVwib2k91Q/view?usp=sharing)<br>
-![Wireframe picture](./public/Wireframe.png)
+![Wireframe picture](./public/Transimo WF.png)

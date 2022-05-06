@@ -5,16 +5,12 @@
 Ruby 3.0.1 <br>
 Rails 6.0.4.8
 
-## Functions List
--Login Function <br>
--User Registration Function <br>
--Profile Editing Function <br>
--Message Function <br>
--Payment Function <br>
--Heroku
+## Employment Term technology
+-devise <br>
+-Message Function
 
 ## Technology Outside The Curiculum
--gmaps4rails (utilization of Google Map)
+-Cloudinary
 
 ## Execution Procedure
 > $ git clone https://github.com/IBRAHIMA8/Transimo.git <br>

@@ -61,23 +61,23 @@ end
     def researched
         if session[:search].present?
           if session[:search]['title'].blank? && session[:search]['availability'].blank? && session[:search]['localisation'].blank? && session[:search]['cost'].blank?
-            Product.current_user_sort(current_user.id).kaminari(params[:page])
+            Product.all.kaminari(params[:page])
 
             # The title has been entered
           elsif session[:search]['title'].present?
             # If availability, localisation were specified
             if session[:search]['availability'].present? && session[:search]['localisation'].present? && session[:search]['cost'].present?
-              Product.current_user_sort(current_user.id).search_sort(session[:search]['title']).availability_sort(session[:search]['availability']).localisation_sort(session[:search]['localisation']).cost_sort(session[:cost]['availability']).kaminari(params[:page])
+              Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['availability']).localisation_sort(session[:search]['localisation']).cost_sort(session[:cost]['availability']).kaminari(params[:page])
               # If only localisation and title is specified
             elsif session[:search]['availability'].present? && session[:search]['localisation'].present?
-              Product.current_user_sort(current_user.id).search_sort(session[:search]['title']).availability_sort(session[:search]['availability'])..cost_sort(session[:search]['cost']).kaminari(params[:page])
+              Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['availability'])..cost_sort(session[:search]['cost']).kaminari(params[:page])
               #If only localisation and title are specified
             elsif session[:search]['localisation'].present?
-              Product.current_user_sort(current_user.id).search_sort(session[:search]['title']).availability_sort(session[:search]['localisation']).kaminari(params[:page])
+              Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['localisation']).kaminari(params[:page])
             elsif session[:search]['cost'].present?
-              Product.current_user_sort(current_user.id).title_sort(session[:search]['title']).cost_sort(session[:search]['cost']).kaminari(params[:page])
+              Product.all.title_sort(session[:search]['title']).cost_sort(session[:search]['cost']).kaminari(params[:page])
             else
-              Product.current_user_sort(current_user.id).search_sort(session[:search]['title']).kaminari(params[:page])
+              Product.all.search_sort(session[:search]['title']).kaminari(params[:page])
             end
 
 
@@ -85,33 +85,33 @@ end
           elsif session[:search]['availability'].present?
             # If localisation and availability are specified
             if session[:search]['cost'].present? && session[:search]['localisation'].present?
-              Product.current_user_sort(current_user.id).availability_sort(session[:search]['availability']).localisation_sort(session[:search]['localisation']).cost_sort(session[:search]['cost']).kaminari(params[:page])
+              Product.all.availability_sort(session[:search]['availability']).localisation_sort(session[:search]['localisation']).cost_sort(session[:search]['cost']).kaminari(params[:page])
               # If only localisation is specified
             elsif session[:search]['localisation'].present?
-              Product.current_user_sort(current_user.id).localisation_sort(session[:search]['localisation']).availability_sort(session[:search]['availability']).kaminari(params[:page])
+              Product.all.localisation_sort(session[:search]['localisation']).availability_sort(session[:search]['availability']).kaminari(params[:page])
             elsif session[:search]['cost'].present?
-              Product.current_user_sort(current_user.id).cost_sort(session[:search]['cost']).availability_sort(session[:search]['availability']).kaminari(params[:page])
+              Product.all.cost_sort(session[:search]['cost']).availability_sort(session[:search]['availability']).kaminari(params[:page])
             else
-              Product.current_user_sort(current_user.id).availability_sort(session[:search]['availability']).kaminari(params[:page])
+              Product.all.availability_sort(session[:search]['availability']).kaminari(params[:page])
             end
 
             #-------------------------
           elsif session[:search]['localisation'].present?
             # If localisation and availability are specified
             if session[:search]['cost'].present?
-              Product.current_user_sort(current_user.id).cost_sort(session[:search]['cost']).localisation_sort(session[:search]['localisation']).kaminari(params[:page])
+              Product.all.cost_sort(session[:search]['cost']).localisation_sort(session[:search]['localisation']).kaminari(params[:page])
               # If only localisation is specified
             else
-              Product.current_user_sort(current_user.id).localisation_sort(session[:search]['localisation']).kaminari(params[:page])
+              Product.all.localisation_sort(session[:search]['localisation']).kaminari(params[:page])
             end
 
 
           elsif session[:search]['cost'].present?
-            Product.current_user_sort(current_user.id).cost_sort(session[:search]['cost']).kaminari(params[:page])
+            Product.all.cost_sort(session[:search]['cost']).kaminari(params[:page])
 
 
           else
-            Product.current_user_sort(current_user.id).kaminari(params[:page])
+            Product.all.kaminari(params[:page])
           end
         end
       end

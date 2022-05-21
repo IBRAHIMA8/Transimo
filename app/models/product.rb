@@ -12,14 +12,14 @@ class Product < ApplicationRecord
 
   scope :cost_sort, -> { order(cost: :desc) }
 
-  scope :orderByCost,->{order(cost: :desc) }
+  scope :orderByCost,->{order(cost: :asc) }
 
 
 
 
   # scope :filter_by_localisation, -> (localisation) { where localisation: localisation }
   # scope :filter_by_availability, -> (availability) { where availability: availability }
-  # scope :filter_by_cost, -> (cost) { where cost: cost }
+  #scope :filter_by_cost, -> (cost) { where cost: cost }
   #scope :filter_by_starts_with, -> (title) { where("title like ?", "#{title}%")}
 
 

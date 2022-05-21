@@ -1,39 +1,52 @@
 <div class="container">
-  <h4>La page de <%= @user.name %></h4>
-  <% if product.user == current_user %>
-    <div class="user_products">
-      <% @products.each do |product| %>
-        <div class="product">
-          <div class="product_header">
-            <div class="product_status">
-              <%= product.title %>
-            </div>
-            <div class="product_description">
-              <%= product.description %>
-            </div>
-            <div class="product_localisation">
-              <%= product.localisation %>
-            </div>
-            <div class="product_availability">
-              <%= product.availability %>
-            </div>
-            <div class="product_remarks">
-              <%= product.remarks %>
-            </div>
-            <div class="product_cost">
-              <%= product.cost %>
-            </div>
-            availability
-            <%= link_to 'show', product_path(product.id), class: 'product_show' %>
-            <%= link_to 'edit', edit_product_path(product.id) %>
-            <%= link_to 'destroy', product_path(product.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
-          </div>
-          </div>
-        </div>
+  <h3>Voici la liste de vos produits</h3>
+  <%  if current_user.id == @user.id %>
+  <table class="table">
+   <thead>
+     <tr>
+       <th>Title</th>
+     <!--  <th>Description</th>-->
+       <th>Localisation</th>
+       <th>Availability</th>
+         <!-- <th>Remarks</th>-->
+       <th>Product Cost</th>
+       <th>Product Image</th>
+
+
+       <th colspan="3"></th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @products.each do |product| %>
+       <tr>
+
+         <td><%= product.title %></td>
+           <!-- <td><%= product.description %></td>-->
+         <td><%= product.localisation %></td>
+         <td><%= product.availability %></td>
+           <!-- <td><%= product.remarks %></td>-->
+         <td><%= product.cost %><span>Fcfa</span></td>
+         <td><% if product.image.file.nil? %>
+           <% else %>
+           <%= image_tag product.image.url %></td>
+           <% end %>
+
+
+
+
+
+            <td><%= link_to 'show', product_path(product.id), class:'btn btn-outline-primary' %></td>
+            <td><%= link_to 'edit', edit_product_path(product.id), class:'btn btn-outline-warning' %></td>
+            <td><%= link_to 'destroy', product_path(product.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' }, class:'btn btn-outline-danger' %></td>
+
+
       <% end %>
-    </div>
+
   <% else %>
     <%= 'There is no product created by this user' %>
   <% end %>
 
+</tbody>
+</table>
 </div>

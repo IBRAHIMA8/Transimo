@@ -1,2 +1,66 @@
- <%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<style>
+  strong{
+    font-size: 20px;
+    font-family: fantasy;
+    color: black;
+  }
+
+  span{
+    color: black;
+    font-size: 18px;
+    font-family: 'Lucida';
+  }
+
+
+</style>
+<div class="container">
+ <div class="container">
+  <div class="card container">
+
+<p>
+  <strong>Title:</strong>
+  <span><%= @product.title %></span>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <span><%= @product.description %></span>
+</p>
+
+
+<p>
+  <strong>Localisation:</strong>
+  <span><%= @product.localisation %></span>
+</p>
+
+
+<p>
+  <strong>Availability:</strong>
+  <span> <%= @product.availability %></span>
+
+</p>
+
+
+<p>
+  <strong>Remarks:</strong>
+  <span><%= @product.remarks %></span>
+</p>
+
+<p>
+  <strong>Product Cost:</strong>
+  <span><%= @product.cost %></span>
+</p>
+
+
+<p>
+  <strong>Product Image:</strong>
+  <span><%= image_tag @product.image.url %></span>
+</p>
+
+
+ <%= link_to 'Edit', edit_product_path(@product) , class: 'btn btn-primary text-light' %>
+ <%= link_to 'Back', products_path , class: 'btn btn-primary text-light' %>
+
+    </div>
+  </div>
+</div>

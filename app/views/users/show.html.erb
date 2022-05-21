@@ -1,0 +1,39 @@
+<div class="container">
+  <h4>La page de <%= @user.name %></h4>
+  <% if product.user == current_user %>
+    <div class="user_products">
+      <% @products.each do |product| %>
+        <div class="product">
+          <div class="product_header">
+            <div class="product_status">
+              <%= product.title %>
+            </div>
+            <div class="product_description">
+              <%= product.description %>
+            </div>
+            <div class="product_localisation">
+              <%= product.localisation %>
+            </div>
+            <div class="product_availability">
+              <%= product.availability %>
+            </div>
+            <div class="product_remarks">
+              <%= product.remarks %>
+            </div>
+            <div class="product_cost">
+              <%= product.cost %>
+            </div>
+            availability
+            <%= link_to 'show', product_path(product.id), class: 'product_show' %>
+            <%= link_to 'edit', edit_product_path(product.id) %>
+            <%= link_to 'destroy', product_path(product.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+          </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <%= 'There is no product created by this user' %>
+  <% end %>
+
+</div>

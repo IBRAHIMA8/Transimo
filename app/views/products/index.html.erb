@@ -1,44 +1,112 @@
-  <!-- END section -->
- <h1> Products </h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Localisation</th>
-      <th>Availability</th>
-      <th>Remarks</th>
-      <th>Product Cost</th>
-      <th>Product Image</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.localisation %></td>
-        <td><%= product.availability %></td>
-        <td><%= product.remarks %></td>
-        <td><%= product.cost %></td>
-        <td><% if product.image.file.nil? %></td>
-          <% else %>
-        <td><%= image_tag product.image.url %></td>
-          <% end %>
+<h1> Products list </h1>
 
 
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+
+
+
+<% if @products != nil %>
+<table class="table">
+ <thead>
+   <tr>
+     <th>Title</th>
+   <!--  <th>Description</th>-->
+     <th>Localisation</th>
+     <th>Availability</th>
+       <!-- <th>Remarks</th>-->
+     <th>Product Cost</th>
+     <th>Product Image</th>
+     <th>Author</th>
+
+     <th colspan="3"></th>
+   </tr>
+ </thead>
+
+ <tbody>
+   <% @products.each do |product| %>
+     <tr>
+
+       <td><%= product.title %></td>
+         <!-- <td><%= product.description %></td>-->
+       <td><%= product.localisation %></td>
+       <td><%= product.availability %></td>
+         <!-- <td><%= product.remarks %></td>-->
+       <td><%= product.cost %><span>Fcfa</span></td>
+       <td><% if product.image.file.nil? %>
+         <% else %>
+         <%= image_tag product.image.url %></td>
+         <% end %>
+       <td><%= User.find(product.user_id).name%></td>
+
+
+           <% if User.find(product.user_id).name? %>
+
+           <td><%= link_to 'Voir details', product, class:'btn btn-outline-primary' %></td>
+           <td><%= link_to 'Edit', edit_product_path(product), class:'btn btn-outline-warning' %></td>
+           <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %></td>
+
+
+           <% else %>
+           <td><%= link_to 'Voir details et commander', product, class:'btn btn-outline-primary' %></td>
+           <td><%= link_to 'Ecrire au poster', conversations_path, class:'btn btn-outline-warning' %></td>
+           <% end %>
+
+     </tr>
+   <% end %>
+ </tbody>
 </table>
+<% else %>
+   <h3><p>No product</p></h3>
+<% end %>
+
 
 <br>
 
-<%= link_to 'Add New Product', new_product_path %>
+<%= link_to 'Add New Product', new_product_path, class: 'btn btn-primary text-light' %>
+
+
+
+
+<br><br>
+<div class="container shadow">
+<h1>Do your research here</h1>
+
+        <div class="row py-3">
+          <div class="col sm-3">
+            <div class="col">
+              <%= form_with(url: search_products_path, method: :get, local: true) do |f| %>
+              <% if defined? @search_title %>
+                <%= f.text_field :search_title, value: @search_title %>
+              <% else %>
+              <%= f.text_field :search_title %>
+              <% end %>
+
+              <% if defined? @search_localisation %>
+                <%= f.text_field :search_localisation, value: @search_localisation%>
+              <% else %>
+              <%= f.text_field :search_localisation %>
+              <% end %>
+
+
+              <% if defined? @search_cost %>
+                <%= f.text_field :search_cost, value: @search_cost %>
+              <% else %>
+              <%= f.text_field :search_cost %>
+              <% end %>
+
+
+                <%= f.select :search_availability, Product.availabilities.map { |k, v| [k, v] }, class: 'search_availability form-control', prompt: 'Choose availability type'%>
+
+                <%= f.submit 'search' ,class:'btn btn-light'%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    <div class="container py-3">
+
+
+      <div>
+  <%= link_to "Sort by Locality", products_path(localisation_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
+  <%= link_to "Sort by Availability", products_path(sort_by_availability: "true") ,class: 'col btn btn-secondary text-light'%> |
+  <%= link_to "Sort by Cost", products_path(sort_by_cost: "true") ,class: 'col btn btn-secondary text-light'%>
+
+  </div>

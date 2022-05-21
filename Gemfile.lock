@@ -274,6 +274,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   devise
   jbuilder (~> 2.7)
+  kaminari
   letter_opener_web
   listen (~> 3.2)
   mini_magick

@@ -5,25 +5,74 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-  <li><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></li>
+<body style="background-color:LightSlateGrey;font-family:Verdana">
+  <header class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+    <ul class="nav nav-pills">
+      <a class="nav-link active" href="#">TRANSIMO</a>
+    </ul>
+        <% if user_signed_in? %>
+    <ul class="nav justify-content-end">
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Products List', products_path ,class:'fs-20 btn btn-outline-dark'%></a>  ||
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Ma page', user_path(current_user.id) ,class:'btn fs-20 btn-outline-dark'%></a>  ||
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete ,class:'btn fs-20 btn-outline-dark' %></a>  ||
+      </li>
+
+    <% if current_user.admin?%>
+        <li class="nav-item">
+      <a class="nav-link active" href="#"><%= link_to 'Management', rails_admin_path ,class:'btn fs-20 btn-outline-dark'%></a>
+        </li>
+        <% end %>
+        </ul>
+          <% else %>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Connexion', new_user_session_path ,class:'btn fs-20 btn-outline-dark'%></a>   ||
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to "S'inscrire", new_user_registration_path ,class:'btn fs-20 btn-outline-dark'%></a>
+      </li>
+          <% end %>
+        </ul>
+    </div>
+</header>
+<br>
+<% if current_user.present? %>
+  <p>Dear <%= current_user.name %>, Hello! </p>
 <% else %>
-  <li><%= link_to 'Connexion', new_user_session_path %></li>
-  <li><%= link_to "S'inscrire", new_user_registration_path %></li>
+  <p>Hi, dear user!</p>
 <% end %>
 
-
 <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
+    <h3><p class="alert alert-notice"><%= notice %></p></h3>
   <% end %>
   <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
+    <h3><p class="alert alert-error"><%= alert %></p></h3>
   <% end %>
+
+
     <%= yield %>
+    <footer>
+      <footer class="footer">
+    <p>&copy; Transimo 2022. All Rights Reserved/Hadi IBRAHIMA</p>
+  </footer>
+    </footer>
   </body>
+
 </html>

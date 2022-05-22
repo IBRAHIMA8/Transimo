@@ -66,7 +66,7 @@
 
 
 <% else %>
-<%= link_to 'Commander', conversations_path , class: 'btn btn-outline-success' %>
+<%= link_to 'Commander', conversations_path(sender_id: current_user.id, recipient_id: @product.user.id), method: :post, class: 'btn btn-outline-success' %>
 <%= link_to 'Back', products_path , class: 'btn btn-outline-primary' %>
 <% end %>
 

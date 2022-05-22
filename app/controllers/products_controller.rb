@@ -3,14 +3,15 @@ before_action :authenticate_user!
 before_action :set_product,  only: %i[ show edit update destroy ]
   # GET /products or /products.json
   def index
-   #@products = Product.all.order(id: "desc")
-
     if params[:localisation_sort]
       @products=Product.all.orderByLocalisation.kaminari(params[:page])
+      elsif params[:availability_sort]
+        @products=Product.all.orderByAvailability.kaminari(params[:page])
+      elsif params[:cost_sort]
+          @products=Product.all.orderByCost.kaminari(params[:page])
     else
       @products=Product.all.ordered.kaminari(params[:page])
    end
-  # @user=current_user
 end
   # GET /products/1 or /products/1.json
   def show

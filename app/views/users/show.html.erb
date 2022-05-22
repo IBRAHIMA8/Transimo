@@ -1,5 +1,15 @@
+<h1 class="comment">Page de Profil de <%= @user.name %></h1>
+  <% if current_user.id == @user.id %>
+    <p><%= link_to "Modifier votre profil", edit_user_registration_path(@user.id), class:"btn btn-warning" %></p>
+  <% end %>
 
-<div class="container">
+  <br>
+  <br>
+
+
+
+
+<div class="center">
   <h3>Voici la liste de vos produits</h3>
   <%  if current_user.id == @user.id %>
   <table class="table">
@@ -39,12 +49,12 @@
 </table>
 </div>
 
-
+<br>
+<br>
 
 <% if current_user.id == @user.id %>
 
-  <%= link_to 'Voir vos messages', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class:"btn btn-warning" %>
+  <%= link_to 'Voir vos conversations', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class:"btn btn-warning" %>
 
-    <br>
-    <br>
+
   <% end %>

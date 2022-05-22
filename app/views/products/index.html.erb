@@ -6,22 +6,22 @@
             <div class="col">
               <%= form_with(url: search_products_path, method: :get, local: true) do |f| %>
               <% if defined? @search_title %>
-                <%= f.text_field :search_title, value: @search_title, placeholder: 'Title'%>
+                <%= f.text_field :search_title, value: @search_title %>
               <% else %>
-              <%= f.text_field :search_title %>
+              <%= f.text_field :search_title, placeholder: 'Type de maison souhaité' %>
               <% end %>
 
               <% if defined? @search_localisation %>
                 <%= f.text_field :search_localisation, value: @search_localisation%>
               <% else %>
-              <%= f.text_field :search_localisation %>
+              <%= f.text_field :search_localisation, placeholder: 'Localisation souhaitée' %>
               <% end %>
 
 
               <% if defined? @search_cost %>
                 <%= f.text_field :search_cost, value: @search_cost %>
               <% else %>
-              <%= f.text_field :search_cost %>
+              <%= f.text_field :search_cost, placeholder: 'Prix souhaité' %>
               <% end %>
 
 

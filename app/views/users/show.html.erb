@@ -1,18 +1,27 @@
 <h1 class="comment">Page de Profil de <%= @user.name %></h1>
+    <div>
   <% if current_user.id == @user.id %>
     <p><%= link_to "Modifier votre profil", edit_user_registration_path(@user.id), class:"btn btn-warning" %></p>
   <% end %>
 
-  <br>
-  <br>
+  <br><br>
 
 
+  <% if current_user.id == @user.id %>
+
+    <%= link_to 'Voir vos conversations', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class:"btn btn-warning" %>
 
 
-<div class="center">
+    <% end %>
+  </div>
+
+
+  <br><br><br>
+    <table class="table">
+
   <h3>Voici la liste de vos produits</h3>
+
   <%  if current_user.id == @user.id %>
-  <table class="table">
    <thead>
      <tr>
        <th>Title</th>
@@ -36,7 +45,7 @@
          <td><%= product.cost %><span>Fcfa</span></td>
          <td><% if product.image.file.nil? %>
            <% else %>
-           <%= image_tag product.image.url %></td>
+           <%= image_tag product.image.url, class: "im_prod" %></td>
            <% end %>
           <td><%= link_to 'show', product_path(product.id), class:'btn btn-outline-primary' %></td>
           <td><%= link_to 'edit', edit_product_path(product.id), class:'btn btn-outline-warning' %></td>
@@ -47,14 +56,6 @@
   <% end %>
 </tbody>
 </table>
-</div>
+<br><br>
 
-<br>
-<br>
-
-<% if current_user.id == @user.id %>
-
-  <%= link_to 'Voir vos conversations', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class:"btn btn-warning" %>
-
-
-  <% end %>
+<span><%= link_to 'Add New Product', new_product_path, class: 'btn btn-primary text-light' %></span>

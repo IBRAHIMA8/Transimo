@@ -27,9 +27,9 @@ end
 
 gem 'devise'
 gem 'rexml'
-
+gem 'dotenv-rails'
 gem 'rails_admin'
-
+gem 'faker'
 gem 'cancancan'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -39,6 +39,7 @@ gem 'cancancan'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'kaminari'
+gem 'cloudinary'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

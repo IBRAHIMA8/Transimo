@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
-  
+
+  validates :title, presence: true, unless: :image?
+
   mount_uploader :image, ImageUploader
 
   enum availability: { Free: 0, Immediatly: 1, Notfree: 2 }

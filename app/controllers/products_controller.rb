@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
-before_action :authenticate_user!
+# before_action :authenticate_user!
 before_action :set_product,  only: %i[ show edit update destroy ]
+skip_before_action :authenticate_user!, only: [:home]
   # GET /products or /products.json
+
+  def home
+  end
+
   def index
     if params[:localisation_sort]
       @products=Product.all.orderByLocalisation.kaminari(params[:page])
@@ -76,7 +81,7 @@ end
             elsif session[:search]['localisation'].present?
               Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['localisation']).kaminari(params[:page])
             elsif session[:search]['cost'].present?
-              Product.all.title_sort(session[:search]['title']).cost_sort(session[:search]['cost']).kaminari(params[:page])
+              Product.all.search_sort(session[:search]['title']).cost_sort(session[:search]['cost']).kaminari(params[:page])
             else
               Product.all.search_sort(session[:search]['title']).kaminari(params[:page])
             end

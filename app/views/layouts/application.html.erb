@@ -10,6 +10,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  
   </head>
 
 <body style="background-color:LightSlateGrey;font-family:Verdana">
@@ -22,16 +24,19 @@
     <ul class="nav justify-content-end">
 
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Products List', products_path ,class:'fs-20 btn btn-outline-dark'%></a>  ||
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Ma page', user_path(current_user.id) ,class:'btn fs-20 btn-outline-dark'%></a>  ||
+        <a class="nav-link active" href="#"><%= link_to 'Home', products_home_path ,class:'fs-20 btn btn-outline-dark'%></a>||
       </li>
 
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete ,class:'btn fs-20 btn-outline-dark' %></a>  ||
+        <a class="nav-link active" href="#"><%= link_to 'Products List', products_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Ma page', user_path(current_user.id) ,class:'btn fs-20 btn-outline-dark'%></a>||
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete ,class:'btn fs-20 btn-outline-dark' %></a>||
       </li>
 
     <% if current_user.admin?%>
@@ -43,7 +48,15 @@
           <% else %>
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Connexion', new_user_session_path ,class:'btn fs-20 btn-outline-dark'%></a>   ||
+        <a class="nav-link active" href="#"><%= link_to 'Home', products_home_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Products List', products_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><%= link_to 'Connexion', new_user_session_path ,class:'btn fs-20 btn-outline-dark'%></a>||
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="#"><%= link_to "S'inscrire", new_user_registration_path ,class:'btn fs-20 btn-outline-dark'%></a>
@@ -52,12 +65,12 @@
         </ul>
     </div>
 </header>
-<br>
-<% if current_user.present? %>
-  <p>Dear <%= current_user.name %>, Hello! </p>
-<% else %>
-  <p>Hi, dear user!</p>
-<% end %>
+<br><br>
+  <td><% if current_user.present? %>
+    <p>Dear <%= current_user.name %>, Hello! </p>
+  <% else %>
+    <p>Hi, dear user!</p>
+  <% end %>
 
 <% if notice %>
     <h3><p class="alert alert-notice"><%= notice %></p></h3>

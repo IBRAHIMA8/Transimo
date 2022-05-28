@@ -63,61 +63,36 @@ end
       render :index
     end
 
-
     def researched
         if session[:search].present?
           if session[:search]['title'].blank? && session[:search]['availability'].blank? && session[:search]['localisation'].blank? && session[:search]['cost'].blank?
             Product.all.kaminari(params[:page])
 
             # The title has been entered
-          elsif session[:search]['title'].present?
-            # If availability, localisation were specified
-            if session[:search]['availability'].present? && session[:search]['localisation'].present? && session[:search]['cost'].present?
-              Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['availability']).localisation_sort(session[:search]['localisation']).cost_sort(session[:cost]['availability']).kaminari(params[:page])
-              # If only localisation and title is specified
-            elsif session[:search]['availability'].present? && session[:search]['localisation'].present?
-              Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['availability'])..cost_sort(session[:search]['cost']).kaminari(params[:page])
-              #If only localisation and title are specified
-            elsif session[:search]['localisation'].present?
-              Product.all.search_sort(session[:search]['title']).availability_sort(session[:search]['localisation']).kaminari(params[:page])
-            elsif session[:search]['cost'].present?
-              Product.all.search_sort(session[:search]['title']).cost_sort(session[:search]['cost']).kaminari(params[:page])
-            else
-              Product.all.search_sort(session[:search]['title']).kaminari(params[:page])
-            end
-
-
-            # The title is empty and the availability is specified
-          elsif session[:search]['availability'].present?
-            # If localisation and availability are specified
-            if session[:search]['cost'].present? && session[:search]['localisation'].present?
-              Product.all.availability_sort(session[:search]['availability']).localisation_sort(session[:search]['localisation']).cost_sort(session[:search]['cost']).kaminari(params[:page])
-              # If only localisation is specified
-            elsif session[:search]['localisation'].present?
-              Product.all.localisation_sort(session[:search]['localisation']).availability_sort(session[:search]['availability']).kaminari(params[:page])
-            elsif session[:search]['cost'].present?
-              Product.all.cost_sort(session[:search]['cost']).availability_sort(session[:search]['availability']).kaminari(params[:page])
-            else
-              Product.all.availability_sort(session[:search]['availability']).kaminari(params[:page])
-            end
-
-            #-------------------------
-          elsif session[:search]['localisation'].present?
-            # If localisation and availability are specified
-            if session[:search]['cost'].present?
-              Product.all.cost_sort(session[:search]['cost']).localisation_sort(session[:search]['localisation']).kaminari(params[:page])
-              # If only localisation is specified
-            else
-              Product.all.localisation_sort(session[:search]['localisation']).kaminari(params[:page])
-            end
-
-
-          elsif session[:search]['cost'].present?
-            Product.all.cost_sort(session[:search]['cost']).kaminari(params[:page])
-
-
+          #elsif session[:search]['title'].present?
           else
-            Product.all.kaminari(params[:page])
+            products = Product.all
+            # If availability, localisation were specified
+            if session[:search]['title'].present?
+              products = products.title_sort(session[:search]['title'])#ajoout
+              # If only localisation and title is specified
+            end
+
+            if session[:search]['availability'].present?
+              products = products.availability_sort(session[:search]['availability'])
+              # If only localisation and title is specified
+            end
+
+            if session[:search]['localisation'].present?
+              products = products.localisation_sort(session[:search]['localisation'])
+              # If only localisation and title is specified
+            end
+
+            if session[:search]['cost'].present?
+              products = products.cost_sort(session[:search]['cost'])
+              # If only localisation and title is specified
+            end
+            products.kaminari(params[:page])
           end
         end
       end

@@ -19,6 +19,8 @@ class Product < ApplicationRecord
 
   scope :localisation_sort, -> (search_localisation){ where(localisation: search_localisation) }
 
+  scope :title_sort, -> (search_title){ where(title: search_title) }#ajout
+
   scope :search_sort, -> (search_word){ where('title LIKE ?', "%#{search_word}%") }
 
   scope :availability_sort, -> (search_availability){ where(availability: search_availability) }

@@ -22,47 +22,17 @@ text-justify: inter-word;
 
 
 
-
-
-<ul class="nav justify-content-end">
-
-  <li class="nav-item">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.hidden_field :email ,value: "guest@example.com" %>
-        <%= f.hidden_field :password ,value: "guests" %>
-      </div>
-      <div class="actions">
-          <%= f.submit "Log in as Guest", class: "btn btn-success" %>||||
-      </div>
-    <% end %>
-  </li>
-
-  <li class="nav-item">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.hidden_field :email ,value: "admin@example.com" %>
-        <%= f.hidden_field :password ,value: "admins" %>
-      </div>
-      <div class="actions">
-          <%= f.submit "Log in as Admin", class: "btn btn-success" %>
-      </div>
-
-  <% end %>
-  </li>
-    </ul>
-
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'example@gmail.com' %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder:"Write your current passaword" %>
   </div>
 
   <% if devise_mapping.rememberable? %>

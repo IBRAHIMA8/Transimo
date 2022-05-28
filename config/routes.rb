@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   #root to: 'products#index'
 
-  #root to: 'homepage#home'
+
+    #root to: 'homepage#home'
+
+  #default_url_options :host => "example.com"
 
   root 'products#home'
   get "products/home"

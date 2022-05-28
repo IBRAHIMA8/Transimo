@@ -8,30 +8,18 @@
 require 'faker'
 user = User.create(
         name: "admin",
-        email: "admin@example.com",
-        password: "admins",
-        password_confirmation: "admins",
+        email: "hadi.ibrahima@gmail.com",
+        password: "123456",
+        password_confirmation: "123456",
         admin: true
       )
 
 user = User.create(
         name: "guest_a",
-        email: "guest@example.com",
-        password: "guests",
-        password_confirmation: "guests")
+        email: "transimoguest@gmail.com",
+        password: "guests123456",
+        password_confirmation: "guests123456")
 
-
-
-
-# 5.times do |i|
-#   "user#{i}" = User.create(
-#         name: "user#{i}name",
-#         email: "user#{i}@gmail.com",
-#         password: "password"
-#         password_confirmation: "password"
-#         admin: false,
-#     )
-# end
 
 
 user1 = User.create!(
@@ -65,8 +53,6 @@ user5 = User.create!(
   admin: true,
 )
 
-
-
 conversation1 = Conversation.create!(
  sender_id: user2.id,
  recipient_id: user5.id
@@ -89,8 +75,6 @@ conversation5 = Conversation.create!(
  sender_id:  user4.id,
  recipient_id: user3.id
 )
-
-
 
 Message.create!(
   conversation_id: conversation1.id,
@@ -127,17 +111,6 @@ Message.create!(
 availability = ['Free', 'Immediatly', 'Notfree']
 
 image = ['https://www.google.com/url?sa=i&url=https%3A%2F%2Fplayplay.com%2Fblog%2Ffr%2Fvideo-immobilier%2F&psig=AOvVaw0HTUB5Djjfdqt2Pk-BG14B&ust=1653661474058000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCKjP56Cv_fcCFQAAAAAdAAAAABAD', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.plan-immobilier.fr%2Fguide-immobilier%2Fhabiter%2Fguide-achat%2Fdifferents-types-biens-immobilier&psig=AOvVaw0HTUB5Djjfdqt2Pk-BG14B&ust=1653661474058000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCKjP56Cv_fcCFQAAAAAdAAAAABAJ', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.kanataimmobilier.net%2Fwp-content%2Fuploads%2F2021%2F02%2Fsmall_pic3.jpg&imgrefurl=https%3A%2F%2Fwww.kanataimmobilier.net%2F&tbnid=rEPmZOvqEayxYM&vet=12ahUKEwi5oZiXr_33AhWkgv0HHRoYDscQMyhiegUIARDDAQ..i&docid=74EJkI3nNpNcZM&w=400&h=266&q=image%20immobilier&ved=2ahUKEwi5oZiXr_33AhWkgv0HHRoYDscQMyhiegUIARDDAQ', 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.nord-sud-immobilier.com%2Fimages%2Fheader-img.png&imgrefurl=https%3A%2F%2Fwww.nord-sud-immobilier.com%2F&tbnid=Vf9U95uPtWwu6M&vet=10CBgQMyhyahcKEwioz-egr_33AhUAAAAAHQAAAAAQDg..i&docid=51MOxio286kxCM&w=2560&h=993&q=image%20immobilier&ved=0CBgQMyhyahcKEwioz-egr_33AhUAAAAAHQAAAAAQDg']
-# 10.times do
-#   Product.create!(title: Faker::Book.title,
-#                   description: Faker::Lorem.sentence(5),
-#                   localisation: Faker::Address.city,
-#                   availability: availability.sample,
-#                   remarks: Faker::Lorem.paragraph(sentence_count: 3),
-#                   cost: Faker::Number.number(digits: 3) * 100,
-#                   image: Faker::LoremFlickr.unique.image)
-#                   user_id rand(1..6)
-# end
-
 
 5.times do |i|
     Product.create(

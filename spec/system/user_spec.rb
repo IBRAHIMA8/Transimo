@@ -1,17 +1,21 @@
 require 'rails_helper'
 RSpec.describe 'User registration / login / logout function', type: :system do
   def user_login
-    visit new_session_path
-    fill_in 'session[email]', with: 'user@gmail.com'
-    fill_in 'session[password]', with: '00000000'
-    click_button 'Sign in'
+    visit new_user_session_path
+    # fill_in 'session[email]', with: 'user@gmail.com'
+    # fill_in 'session[password]', with: '00000000'
+    find("#user_email").set('user@gmail.com')
+    find("#user_password").set('00000000')
+    click_button 'Log in'
   end
 
   def admin_user_login
-    visit new_session_path
-    fill_in 'session[email]', with: 'admin@gmail.com'
-    fill_in 'session[password]', with: '99999999'
-    click_button 'Sign in'
+    visit new_user_session_path
+    # fill_in 'session[email]', with: 'admin@gmail.com'
+    # fill_in 'session[password]', with: '99999999'
+    find("#user_email").set('admin@gmail.com')
+    find("#user_password").set('99999999')
+    click_button 'Log in'
 
     #@user = User.create!(id:1, name: 'user1', email: "user@gmail.com", password: "12345678", confirmed_at: DateTime.now)
 
@@ -55,8 +59,8 @@ RSpec.describe 'User registration / login / logout function', type: :system do
 
 describe 'Session functionality testing' do
   before do
-    @user = FactoryBot.create(:user10)
-    #@user = User.create!(id:8, name: 'user8', email: "user8@gmail.com", password: "12345678", confirmed_at: DateTime.now)
+    #@user = FactoryBot.create(:user1)
+    @user = User.create!(id:8, name: 'user8', email: "user8@gmail.com", password: "12345678", confirmed_at: DateTime.now)
     user_login
   end
 
@@ -70,8 +74,12 @@ describe 'Session functionality testing' do
 
   context 'Log in as general user.' do
     it 'You can jump to your own page' do
-      find("#Ma page").click
-      #click_on 'Ma page'
+      visit root_path
+      #find("#Ma page").click
+      #click_on 'Product List'
+      #find("#Product List").click
+      #find("#Ma page").click
+      click_button 'Ma page'
        expect(current_path).to eq user_path
     end
   end

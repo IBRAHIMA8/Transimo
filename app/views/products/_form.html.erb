@@ -17,36 +17,36 @@
 
 
   <div class="field">
-  <h3><%= form.label :title %></h3>
+  <h3><%= form.label :title, 'Titre' %></h3>
   <%= form.text_field :title ,class:'fs-16'%>
   </div>
 
 
 
   <div class="field">
-  <h3><%= form.label :description %></h3>
+  <h3><%= form.label :description, 'Description' %></h3>
     <%= form.text_area :description %>
   </div>
 
 
   <div class="field">
-  <h3><%= form.label :localisation %></h3>
+  <h3><%= form.label :localisation, 'Localisation' %></h3>
     <%= form.text_field :localisation %>
   </div>
 
   <div class="field">
-<h3><%= form.label :availability, 'Availability' %></h3>
+<h3><%= form.label :availability, 'Disponibilité' %></h3>
   <%= form.select :availability,['Free','Immediatly','Notfree'], placeholder: 'Choisir la disponibilité' %>
 </div>
 
 
   <div class="field">
-  <h3><%= form.label :remarks %></h3>
+  <h3><%= form.label :remarks, 'Remarques' %></h3>
     <%= form.text_area :remarks %>
   </div>
 
   <div class="field">
-  <h3><%= form.label :cost %></h3>
+  <h3><%= form.label :cost, 'Coût du Loyer' %></h3>
     <%= form.text_area :cost %>
   </div>
 

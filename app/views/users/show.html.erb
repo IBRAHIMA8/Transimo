@@ -52,10 +52,10 @@
           <td><%= link_to 'destroy', product_path(product.id), method: :delete, data: { confirm: 'Are you sure you want to delete?' }, class:'btn btn-outline-danger' %></td>
       <% end %>
   <% else %>
-    <%= 'There is no product created by this user' %>
+    <%= "Il n'y a pas de produit créé par cet utilisateur" %>
   <% end %>
 </tbody>
 </table>
 <br><br>
 
-<span><%= link_to 'Add New Product', new_product_path, class: 'btn btn-primary text-light' %></span>
+<span><%= link_to 'Ajouter Nouveau Produit', new_product_path, class: 'btn btn-primary text-light' %></span>

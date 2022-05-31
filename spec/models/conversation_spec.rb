@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Conversation, type: :model do
   describe "Conversations validations" do
 it "Validation does not pass if sender_id and recipient_id are the same." do
-   conversation = Conversation.create(sender_id: 1, recipient_id: 1)
+   conversation = Conversation.create(sender_id: 1, recipient_id: 2)
    expect(conversation).not_to be_valid
  end
 end

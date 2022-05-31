@@ -11,7 +11,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  
+
   </head>
 
 <body style="background-color:LightSlateGrey;font-family:Verdana">
@@ -28,7 +28,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Products List', products_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+        <a class="nav-link active" href="#"><%= link_to 'Produits', products_path ,class:'fs-20 btn btn-outline-dark'%></a>||
       </li>
 
       <li class="nav-item">
@@ -48,11 +48,11 @@
           <% else %>
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Home', products_home_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+        <a class="nav-link active" href="#"><%= link_to 'Accueil', products_home_path ,class:'fs-20 btn btn-outline-dark'%></a>||
       </li>
 
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Products List', products_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+        <a class="nav-link active" href="#"><%= link_to 'Produits', products_path ,class:'fs-20 btn btn-outline-dark'%></a>||
       </li>
 
       <li class="nav-item">
@@ -66,10 +66,10 @@
     </div>
 </header>
 <br><br>
-  <td><% if current_user.present? %>
-    <p>Dear <%= current_user.name %>, Hello! </p>
+  <% if current_user.present? %>
+    <p>Cher / chère <%= current_user.name %>, Salut! </p>
   <% else %>
-    <p>Hi, dear user!</p>
+    <p>Cher / Chère utilisateur, salut !</p>
   <% end %>
 
 <% if notice %>

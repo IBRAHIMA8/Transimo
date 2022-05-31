@@ -28,7 +28,7 @@ text-justify: inter-word;
         <%= f.hidden_field :password ,value: "guests123456" %>
       </div>
       <div class="actions">
-          <%= f.submit "Log in as Guest", class: "btn btn-success" %>||||
+          <%= f.submit "Connexion Invité", class: "btn btn-success" %>||||
       </div>
     <% end %>
   </li>
@@ -40,7 +40,7 @@ text-justify: inter-word;
         <%= f.hidden_field :password ,value: "123456" %>
       </div>
       <div class="actions">
-          <%= f.submit "Log in as Admin", class: "btn btn-success" %>
+          <%= f.submit "Connexion Admin", class: "btn btn-success" %>
       </div>
 
   <% end %>
@@ -67,12 +67,12 @@ text-justify: inter-word;
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder:"At least 6 characters" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder:"6 caractères au moins" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"At least 6 characters" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"6 caractères au moins" %>
   </div>
 
   <div class="actions">

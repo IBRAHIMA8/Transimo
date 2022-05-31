@@ -35,13 +35,13 @@
 
 
       <div>
-  <%= link_to "Sort by Locality", products_path(localisation_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
-  <%= link_to "Sort by Availability", products_path(availability_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
-  <%= link_to "Sort by Cost", products_path(cost_sort: "true") ,class: 'col btn btn-secondary text-light'%>
+  <%= link_to "Trier par localité", products_path(localisation_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
+  <%= link_to "Trier par disponibilité", products_path(availability_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
+  <%= link_to "Trier par coût du loyer", products_path(cost_sort: "true") ,class: 'col btn btn-secondary text-light'%>
 
   </div>
 <br><br>
-<h1> Products list </h1>  <span><%= link_to 'Add New Product', new_product_path, class: 'btn btn-primary text-light' %></span>
+<h1> LISTE GENERALE DES PRODUITS </h1>  <span><%= link_to 'Ajouter Nouveau Produit', new_product_path, class: 'btn btn-primary text-light' %></span>
 
 <% if @products != nil %>
 <table class="table">
@@ -77,8 +77,8 @@
        <td><%= User.find(product.user_id).name %></td>
 
           <% if current_user.id == product.user.id %>
-        <td><%= link_to 'Edit', edit_product_path(product), class:'btn btn-outline-warning' %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger', id:"delete-btn" %></td>
+        <td><%= link_to 'Editer', edit_product_path(product), class:'btn btn-outline-warning' %></td>
+        <td><%= link_to 'Supprimer', product, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger', id:"delete-btn" %></td>
           <% else %>
         <td><%= link_to 'Voir details et commander', product_path(product.id), class:'btn btn-outline-primary' %></td>
         <td><%= link_to 'Ecrire au poster', conversations_path(sender_id: current_user.id, recipient_id: product.user.id), method: :post, class:'btn btn-outline-warning' %></td>

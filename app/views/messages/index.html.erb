@@ -1,21 +1,4 @@
-<% if @over_ten %>
-  <%= link_to 'Previous message', '?m=all' %>
-<% end %>
-<div class="right_box">
-<h2 class="comment">Vos conversations</h2>
-<% @users.each do |user| %>
-  <% if user.id != current_user.id %>
 
-      <div class="item">
-
-        <h5> Pour voir votre conversation avec  <strong><%= user.name %></strong>  Cliquez sur <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class:"btn btn-warning" %></h5>
-      </div>
-
-  <% end %>
-  <br>
-<% end %>
-</div>
-<br><br><br><br>
 <div class="left_box">
   <div class="share_box">
 <div class="ui segment">
@@ -47,16 +30,17 @@
         <td>
         <tr>
         <%= form_with(model: [@conversation, @message]) do |f| %>
+
           <div class="field">
             <table>
                   <tr>
                     <td>
-            <%= f.text_area :body, class: "form-control" %>
+            <%= f.text_area :body, class: "form-control", required: true, placeholder: 'Choisissez votre destinataire et taper ici'%>
           </div>
             <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
           <div>
             <br>
-            <%= f.submit "send a message" %>
+            <%= f.submit "Envoyer" %>
       </div>
     </td>
     </tr>
@@ -64,3 +48,20 @@
    </div>
   </div>
 <% end %>
+<br><br><br><br>
+<% if @over_ten %>
+  <%= link_to 'Previous message', '?m=all' %>
+<% end %>
+<div class="right_box">
+<h2 class="comment">Vos conversations</h2>
+<% @users.each do |user| %>
+  <% if user.id != current_user.id %>
+
+      <div class="item">
+
+        <h5> Pour voir votre conversation avec  <strong><%= user.name %></strong>  Cliquez sur <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class:"btn btn-warning" %></h5>
+      </div>
+  <% end %>
+  <br>
+<% end %>
+</div>

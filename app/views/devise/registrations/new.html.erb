@@ -28,7 +28,7 @@ text-justify: inter-word;
         <%= f.hidden_field :password ,value: "guests123456" %>
       </div>
       <div class="actions">
-          <%= f.submit "Log in as Guest", class: "btn btn-success" %>||||
+          <%= f.submit "Invité(e)s!!! Connectez-vous", class: "btn btn-success" %>||||
       </div>
     <% end %>
   </li>
@@ -40,21 +40,21 @@ text-justify: inter-word;
         <%= f.hidden_field :password ,value: "123456" %>
       </div>
       <div class="actions">
-          <%= f.submit "Log in as Admin", class: "btn btn-success" %>
+          <%= f.submit "Admin!!! Connectez-vous", class: "btn btn-success" %>
       </div>
 
   <% end %>
   </li>
     </ul>
 
-<h2>Sign up</h2>
+<h2>Inscription</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, placeholder: 'Your user name' %>
+    <%= f.text_field :name, autofocus: true, placeholder: "Votre nom d'utilisateur" %>
   </div>
 
   <div class="field">
@@ -65,18 +65,18 @@ text-justify: inter-word;
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder:"At least 6 characters" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Au moins 6 caractères" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"At least 6 characters" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Au moins 6 caractères" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
+    <%= f.submit "Enregistré(e)", class: "btn btn-primary" %>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>

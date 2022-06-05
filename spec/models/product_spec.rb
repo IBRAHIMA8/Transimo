@@ -14,7 +14,7 @@ RSpec.describe Product, type: :model do
 
   it 'Validations pass if all attributes are present' do
     @user = User.create!(name: 'user1', email: "userexample@.com", password: "password", confirmed_at: DateTime.now)
-    @product = Product.create!(title: 'Nice Home', description: 'This House is nice', localisation: 'Cotonou',availability: 'Free', cost: '25000', user_id: @user.id)
+    @product = Product.create!(title: 'Nice Home', description: 'This House is nice', localisation: 'Cotonou',availability: 'Libre', cost: '25000', user_id: @user.id)
     product = Product.new(user_id: @user.id, title: 'My House')
     expect(product).to be_valid
   end

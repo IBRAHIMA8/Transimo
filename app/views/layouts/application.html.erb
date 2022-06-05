@@ -11,7 +11,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  
+
   </head>
 
 <body style="background-color:LightSlateGrey;font-family:Verdana">
@@ -67,9 +67,9 @@
 </header>
 <br><br>
   <td><% if current_user.present? %>
-    <p>Dear <%= current_user.name %>, Hello! </p>
+    <p>Cher / chère <%= current_user.name %>, salut !!! </p>
   <% else %>
-    <p>Hi, dear user!</p>
+    <p>Bonjour, cher Utilisateur !!!</p>
   <% end %>
 
 <% if notice %>

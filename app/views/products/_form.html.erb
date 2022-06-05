@@ -18,36 +18,35 @@
 
   <div class="field">
   <h3><%= form.label :title %></h3>
-  <%= form.text_field :title ,class:'fs-16'%>
+  <%= form.text_area :title, placeholder: 'Saisissez le titre de votre produit (ex: Deux chambres salon)'%>
   </div>
 
 
 
   <div class="field">
   <h3><%= form.label :description %></h3>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, placeholder: 'Quelques descriptions de votre produits Ici' %>
   </div>
 
 
   <div class="field">
   <h3><%= form.label :localisation %></h3>
-    <%= form.text_field :localisation %>
+    <%= form.text_field :localisation, placeholder: 'Indiquez la localité où se situe votre produit'  %>
   </div>
 
   <div class="field">
-<h3><%= form.label :availability, 'Availability' %></h3>
-  <%= form.select :availability,['Free','Immediatly','Notfree'], placeholder: 'Availability' %>
+<h3><%= form.label :availability %></h3>
+  <%= form.select :availability,['Libre', 'Immédiatement Libre', 'Bientôt Libre'], placeholder: 'Disponibilité' %>
 </div>
-
 
   <div class="field">
   <h3><%= form.label :remarks %></h3>
-    <%= form.text_area :remarks %>
+    <%= form.text_area :remarks, placeholder: "Laissez d'éventuelles caractéristiques de votre produits Ici" %>
   </div>
 
   <div class="field">
   <h3><%= form.label :cost %></h3>
-    <%= form.text_area :cost %>
+    <%= form.text_area :cost, placeholder: 'Indiqué Ici le coût du Loyer' %>
   </div>
 
 
@@ -63,10 +62,10 @@
 
   <div class="actions">
     <% if action_name=='new' %>
-      <%= form.submit 'Publish New Product',class:'btn btn-primary' %> ||
-      <%= link_to 'Back', products_path,class:'btn btn-primary' %>
+      <%= form.submit 'Poster le nouveau produit',class:'btn btn-primary' %> ||
+      <%= link_to 'Retour', products_path,class:'btn btn-primary' %>
       <% else %>
-      <%= form.submit 'Modify',class:'btn btn-primary' %>
+      <%= form.submit 'Modifier',class:'btn btn-primary' %>
       <% end %>
   </div>
 <% end %>

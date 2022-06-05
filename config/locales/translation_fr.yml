@@ -1,0 +1,48 @@
+fr:
+  activerecord:
+    models:
+      conversation: Conversation #g
+      message: Message #g
+      product: Produit #g
+      user: Utilisateur #g
+
+    attributes:
+      product:
+        title: Titre #g
+        description: Description #g
+        localisation: Localisation #g
+        availability: Disponibilité du produit  #g
+        remarks: Quelques caractéristiques du produit #g
+        cost: Coût du Loyer #g
+        image: Image #g
+        user: :activerecord.models.user #g
+
+      conversation:
+        sender_id: expéditeur_id #g
+        recipient_id: destinataire_id #g
+
+
+      message:
+        body: Corps #g
+        conversation: :activerecord.models.conversation #g
+        user: :activerecord.models.user #g
+        read: Lu #g
+
+      user:
+        authentication_token: Jeton d'authentification #g
+        confirmation_sent_at: Confirmation envoyée à #g
+        confirmation_token: Jeton de confirmation #g
+        confirmed_at: Confirmé à #g
+        current_sign_in_at: Connexion actuelle à #g
+        current_sign_in_ip: IP de connexion actuelle #g
+        email: E-mail #g
+        encrypted_password: Mot de passe crypté #g
+        name: nom #g
+        admin: administrateur #g
+        last_sign_in_at: Dernière connexion à #g
+        last_sign_in_ip: Dernière connexion IP #g
+        phone_number: Numéro de téléphone #g
+        remember_created_at: Rappelez-vous créé à #g
+        reset_password_sent_at: Réinitialiser le mot de passe envoyé à #g
+        reset_password_token: Réinitialiser le jeton de mot de passe #g
+        unconfirmed_email: E-mail non confirmé #g

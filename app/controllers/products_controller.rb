@@ -38,7 +38,7 @@ end
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
+        format.html { redirect_to product_url(@product), notice: "Votre produit est créé avec succès." }
         format.json { render :show, availability: :created, location: @product }
       else
         format.html { render :new, availability: :unprocessable_entity }
@@ -74,22 +74,22 @@ end
             products = Product.all
             # If availability, localisation were specified
             if session[:search]['title'].present?
-              products = products.title_sort(session[:search]['title'])#ajoout
+              products = products.title_sort(session[:search]['title']).kaminari(params[:page])#ajoout
               # If only localisation and title is specified
             end
 
             if session[:search]['availability'].present?
-              products = products.availability_sort(session[:search]['availability'])
+              products = products.availability_sort(session[:search]['availability']).kaminari(params[:page])
               # If only localisation and title is specified
             end
 
             if session[:search]['localisation'].present?
-              products = products.localisation_sort(session[:search]['localisation'])
+              products = products.localisation_sort(session[:search]['localisation']).kaminari(params[:page])
               # If only localisation and title is specified
             end
 
             if session[:search]['cost'].present?
-              products = products.cost_sort(session[:search]['cost'])
+              products = products.cost_sort(session[:search]['cost']).kaminari(params[:page])
               # If only localisation and title is specified
             end
             products.kaminari(params[:page])

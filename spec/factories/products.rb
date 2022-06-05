@@ -3,7 +3,7 @@ FactoryBot.define do
     title { 'Nice Home' }
     description { 'This House is nice' }
     localisation { 'Cotonou' }
-    availability { 'Free' }
+    availability { 'Libre' }
     remarks {'Blablabla' }
     cost { '25000' }
     user_id {1}
@@ -14,7 +14,7 @@ FactoryBot.define do
       title { 'Nice Home1' }
       description { 'This House is very nice' }
       localisation { 'Cotonou1' }
-      availability { 'Free' }
+      availability { 'Libre' }
       remarks {'Blablabla1' }
       cost { '75000' }
       user_id {1}
@@ -25,7 +25,7 @@ FactoryBot.define do
         title { 'Nice One Home' }
         description { 'This House is also nice' }
         localisation { 'Cotonou3' }
-        availability { 'Free' }
+        availability { 'Libre' }
         remarks {'Blablabla2' }
         cost { '125000' }
         user_id {1}
@@ -36,7 +36,7 @@ FactoryBot.define do
         title { 'One Home' }
         description { 'This House is also nice' }
         localisation { 'Cotonou3' }
-        availability { 'Free' }
+        availability { 'Libre' }
         remarks {'Blablabla2' }
         cost { '125000' }
         user_id {1}

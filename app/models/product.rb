@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  enum availability: { Free: 0, Immediatly: 1, Notfree: 2 }
+  enum availability: { Libre: 0, Immédiatement_Libre: 1, Bientôt_Libre: 2 }
 
   scope :ordered, -> { order(created_at: :desc) }
 
@@ -27,7 +27,7 @@ class Product < ApplicationRecord
 
   scope :cost_sort, -> (search_cost){ where(cost: search_cost) }
 
-  scope :kaminari, -> (kaminari_page){ page(kaminari_page).per(8) }
+  scope :kaminari, -> (kaminari_page){ page(kaminari_page).per(5) }
 
   scope :current_user_sort,->(current_user_id){where(user_id: current_user_id)}
 end

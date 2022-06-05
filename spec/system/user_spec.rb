@@ -6,7 +6,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
     # fill_in 'session[password]', with: '00000000'
     find("#user_email").set('user@gmail.com')
     find("#user_password").set('00000000')
-    click_button 'Log in'
+    click_button 'Connecté(e)'
   end
 
   def admin_user_login
@@ -15,7 +15,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
     # fill_in 'session[password]', with: '99999999'
     find("#user_email").set('admin@gmail.com')
     find("#user_password").set('99999999')
-    click_button 'Log in'
+    click_button 'Connecté(e)'
 
     #@user = User.create!(id:1, name: 'user1', email: "user@gmail.com", password: "12345678", confirmed_at: DateTime.now)
 
@@ -46,7 +46,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
   #     it 'Test for jumping to the login screen when you are not logged in.' do
   #       visit products_path
   #       expect(current_path).not_to eq products_path
-  #       expect(page).to have_content 'Log in'
+  #       expect(page).to have_content 'Connecté(e)'
   #        end
   #      end
   #    end
@@ -67,12 +67,12 @@ describe 'Session functionality testing' do
 
 
   # context 'If you have user data while you are not logged in.' do
-  #   it 'Being able to log in' do
+  #   it 'Being able to Connecté(e)' do
   #     expect(page).to have_content 'There is no product created by this user'
   #   end
   # end
 
-  context 'Log in as general user.' do
+  context 'Connecté(e) as general user.' do
     it 'You can jump to your own page' do
       visit root_path
       #find("#Ma page").click
@@ -106,7 +106,7 @@ end
 #       @admin_user = FactoryBot.create(:admin_user)
 #     end
 #
-#     context 'Log in as a general user' do
+#     context 'Connecté(e) as a general user' do
 #       it 'General users cannot access the management screen' do
 #         user_login
 #         visit admin_users_path

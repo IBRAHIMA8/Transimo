@@ -4,7 +4,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
     visit new_user_session_path
     # fill_in 'session[email]', with: 'user@gmail.com'
     # fill_in 'session[password]', with: '00000000'
-    find("#user_email").set('user@gmail.com')
+    find("#user_email").set('usernew@gmail.com')
     find("#user_password").set('00000000')
     click_button 'Connecté(e)'
   end
@@ -57,6 +57,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
 
 
 
+<<<<<<< HEAD
 describe 'Session functionality testing' do
   before do
     #@user = FactoryBot.create(:user1)
@@ -96,24 +97,71 @@ end
   #   end
   # end
 #end
+=======
+# describe 'Session functionality testing' do
+#   before do
+#     #@user = FactoryBot.create(:user1)
+#     @user = User.create!(id:8, name: 'user8', email: 'usernew@gmail.com', password: '00000000', confirmed_at: DateTime.now)
+#     user_login
+#   end
+#
+>>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
 #
 #
 #
 #
-# describe 'Management screen test' do
-#     before do
-#       @user = FactoryBot.create(:user)
-#       @admin_user = FactoryBot.create(:admin_user)
+#   context 'Log in as general user.' do
+#     it 'You can jump to your own page' do
+#       click_on 'Ma page'
+#       #visit "/products"
+#       #find("#Ma page").click
+#       #click_on 'Product List'
+#       #find("#Product List").click
+#       #find("#Ma page").click
+#
+#        expect(page).to have_content("user8")
 #     end
+#   end
+# end
 #
+<<<<<<< HEAD
 #     context 'Connecté(e) as a general user' do
 #       it 'General users cannot access the management screen' do
 #         user_login
 #         visit admin_users_path
 #         expect(current_path).to eq products_path
 #       end
-#     end
+=======
 #
+#
+#
+#   #
+#     it 'Being able to log out' do
+#       click_link 'Se déconnecter'
+#       page.driver.browser.switch_to.alert.accept
+#       expect(current_path).to eq new_session_path
+>>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+#     end
+  # end
+#end
+#
+#
+#
+#
+describe 'Management screen test' do
+    before do
+      @user = FactoryBot.create(:user)
+      @admin_user = FactoryBot.create(:admin_user)
+    end
+end
+    context 'Log in as a general user' do
+      it 'General users cannot access the management screen' do
+        admin_user_login
+        visit admin_user_login
+        expect(current_path).to eq admin_users_path
+      end
+    end
+
 #     context 'You are logged in as an administrator' do
 #       before do
 #         admin_user_login

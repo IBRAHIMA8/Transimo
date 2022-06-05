@@ -38,7 +38,11 @@ end
 
     respond_to do |format|
       if @product.save
+<<<<<<< HEAD
         format.html { redirect_to product_url(@product), notice: "Votre produit est créé avec succès." }
+=======
+        format.html { redirect_to product_url(@product), notice: "Le produit a été créé avec succès." }
+>>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
         format.json { render :show, availability: :created, location: @product }
       else
         format.html { render :new, availability: :unprocessable_entity }
@@ -102,7 +106,7 @@ end
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
+        format.html { redirect_to product_url(@product), notice: "Le produit a été mis à jour avec succès." }
         format.json { render :show, availability: :ok, location: @product }
       else
         format.html { render :edit, availability: :unprocessable_entity }
@@ -116,7 +120,7 @@ end
     @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+      format.html { redirect_to products_url, notice: "Le produit a été détruit avec succès." }
       format.json { head :no_content }
     end
   end

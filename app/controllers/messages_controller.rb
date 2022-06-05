@@ -24,6 +24,7 @@ class MessagesController < ApplicationController
   if params[:m]
     @over_ten = false
     @messages = @conversation.messages
+    #@body = true
   end
 
   if @messages.last

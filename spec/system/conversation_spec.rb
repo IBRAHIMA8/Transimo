@@ -13,6 +13,7 @@ RSpec.describe 'Conversation function', type: :system do
   #                            password_confirmation: 'password5',
   #                            confirmed_at: DateTime.now)
 
+
     @user6 = User.create!(id:6, name: 'user6', email: "user6@gmail.com", password: "12345678", confirmed_at: DateTime.now)
 
     @user7 = User.create!(id:7, name: 'user7', email: "user7@gmail.com", password: "12345678", confirmed_at: DateTime.now)
@@ -25,8 +26,8 @@ RSpec.describe 'Conversation function', type: :system do
 
 
 
-        visit new_session_path
-        find("#user_email").set(@user6.email)
+        visit new_user_session_path
+        find("#user_email").set("user6@gmail.com")
         find("#user_password").set("12345678")
         click_button 'Log in'
         # expect(page).to have_content 'Product'

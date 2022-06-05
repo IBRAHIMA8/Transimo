@@ -12,6 +12,7 @@ module Transimo
     config.i18n.default_locale = :fr
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.i18n.default_locale = :fr
     config.generators do |g|
       g.test_framework :rspec,
                    model_specs: true,
@@ -27,4 +28,5 @@ end
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+
 end

@@ -38,11 +38,11 @@ end
 
     respond_to do |format|
       if @product.save
-<<<<<<< HEAD
+
         format.html { redirect_to product_url(@product), notice: "Votre produit est créé avec succès." }
-=======
+
         format.html { redirect_to product_url(@product), notice: "Le produit a été créé avec succès." }
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+
         format.json { render :show, availability: :created, location: @product }
       else
         format.html { render :new, availability: :unprocessable_entity }

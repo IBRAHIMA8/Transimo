@@ -11,7 +11,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
   </head>
 
 <body style="background-color:LightSlateGrey;font-family:Verdana">
@@ -24,7 +23,7 @@
     <ul class="nav justify-content-end">
 
       <li class="nav-item">
-        <a class="nav-link active" href="#"><%= link_to 'Home', products_home_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+        <a class="nav-link active" href="#"><%= link_to 'Accueil', products_home_path ,class:'fs-20 btn btn-outline-dark'%></a>||
       </li>
 
       <li class="nav-item">
@@ -66,27 +65,25 @@
     </div>
 </header>
 <br><br>
-<<<<<<< HEAD
+
   <td><% if current_user.present? %>
     <p>Cher / chère <%= current_user.name %>, salut !!! </p>
   <% else %>
     <p>Bonjour, cher Utilisateur !!!</p>
-=======
+
   <% if current_user.present? %>
     <p>Cher / chère <%= current_user.name %>, Salut! </p>
   <% else %>
     <p>Cher / Chère utilisateur, salut !</p>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
-  <% end %>
 
+  <% end %>
+  <% end %>
 <% if notice %>
     <h3><p class="alert alert-notice"><%= notice %></p></h3>
   <% end %>
   <% if alert %>
     <h3><p class="alert alert-error"><%= alert %></p></h3>
   <% end %>
-
-
     <%= yield %>
     <footer>
       <footer class="footer">

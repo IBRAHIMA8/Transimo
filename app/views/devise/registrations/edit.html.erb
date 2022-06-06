@@ -6,11 +6,9 @@
 
   <div class="field">
     <%= f.label :name %><br />
-<<<<<<< HEAD
+
     <%= f.text_field :name, autofocus: true, placeholder: "Votre nom d'utilisateur"  %>
-=======
-    <%= f.text_field :name, autofocus: true, placeholder: 'Mettez votre nom'  %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+
   </div>
 
   <div class="field">
@@ -23,13 +21,10 @@
   <% end %>
 
   <div class="field">
-<<<<<<< HEAD
+
     <%= f.label :password %> <i>(Laissez vide si vous ne voulez pas le changer)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Au moins 6 caractères" %>
-=======
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "Nouveau mot de passe", placeholder:"6 caractères au moins" %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+
     <% if @minimum_password_length %>
       <br />
     <% end %>
@@ -37,7 +32,7 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-<<<<<<< HEAD
+
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Au moins 6 caractères"  %>
   </div>
 
@@ -49,25 +44,11 @@
 
   <div class="actions">
     <%= f.submit "Mise à jour", class:'btn btn-success'  %>
-=======
-    <%= f.password_field :password_confirmation, autocomplete: "Nouveau mot de passe", placeholder:"6 caractères au moins"  %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "Actuel mot de passe", placeholder:"Write your current passaword" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Mise à jour" %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
   </div>
 <% end %>
 
 <h4>Suppression de compte</h4>
 
-<<<<<<< HEAD
+
 <p>Malheureux? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sûr?" }, method: :delete, class:'btn btn-danger' %></p>
-=======
-<p>Unhappy? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, method: :delete %></p>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544

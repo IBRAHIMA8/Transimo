@@ -1,8 +1,6 @@
 <div class="container">
    <div class="text-center">
 <%= form_with(model: product, local: true) do |form| %>
-
-
   <% if product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -14,97 +12,53 @@
       </ul>
     </div>
   <% end %>
-
-
   <div class="field">
-<<<<<<< HEAD
-  <h3><%= form.label :title %></h3>
-  <%= form.text_area :title, placeholder: 'Saisissez le titre de votre produit (ex: Deux chambres salon)'%>
-=======
-  <h3><%= form.label :title, 'Titre' %></h3>
-  <%= form.text_field :title ,class:'fs-16'%>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+    <h3><%= form.label :title %></h3>
+    <%= form.text_area :title, placeholder: 'Saisissez le titre de votre produit (ex: Deux chambres salon)'%>
   </div>
 
-
-
   <div class="field">
-<<<<<<< HEAD
-  <h3><%= form.label :description %></h3>
+    <h3><%= form.label :description %></h3>
     <%= form.text_area :description, placeholder: 'Quelques descriptions de votre produits Ici' %>
-=======
-  <h3><%= form.label :description, 'Description' %></h3>
-    <%= form.text_area :description %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
   </div>
 
-
   <div class="field">
-<<<<<<< HEAD
-  <h3><%= form.label :localisation %></h3>
+    <h3><%= form.label :localisation %></h3>
     <%= form.text_field :localisation, placeholder: 'Indiquez la localité où se situe votre produit'  %>
   </div>
 
   <div class="field">
-<h3><%= form.label :availability %></h3>
-  <%= form.select :availability,['Libre', 'Immédiatement Libre', 'Bientôt Libre'], placeholder: 'Disponibilité' %>
-=======
-  <h3><%= form.label :localisation, 'Localisation' %></h3>
-    <%= form.text_field :localisation %>
-  </div>
-
-  <div class="field">
-<h3><%= form.label :availability, 'Disponibilité' %></h3>
-  <%= form.select :availability,['Free','Immediatly','Notfree'], placeholder: 'Choisir la disponibilité' %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+    <h3><%= form.label :availability %></h3>
+    <%= form.select :availability,['Libre', 'Immédiatement_Libre', 'Bientôt_Libre'], placeholder: 'Disponibilité' %>
 </div>
 
   <div class="field">
-<<<<<<< HEAD
-  <h3><%= form.label :remarks %></h3>
+    <h3><%= form.label :remarks %></h3>
     <%= form.text_area :remarks, placeholder: "Laissez d'éventuelles caractéristiques de votre produits Ici" %>
   </div>
 
   <div class="field">
-  <h3><%= form.label :cost %></h3>
+    <h3><%= form.label :cost %></h3>
     <%= form.text_area :cost, placeholder: 'Indiqué Ici le coût du Loyer' %>
-=======
-  <h3><%= form.label :remarks, 'Remarques' %></h3>
-    <%= form.text_area :remarks %>
   </div>
 
   <div class="field">
-  <h3><%= form.label :cost, 'Coût du Loyer' %></h3>
-    <%= form.text_area :cost %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+    <h3><%= form.label :image %></h3>
+    <%= image_tag(@product.image.url) if @product.image && @product.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
-
-
-
-  <div class="field">
-  <h3><%= form.label :image %></h3>
-  <%= image_tag(@product.image.url) if @product.image && @product.image.url %>
-  <%= form.file_field :image %>
-  <%= form.hidden_field :image_cache %>
-</div>
-
-
 
   <div class="actions">
     <% if action_name=='new' %>
-<<<<<<< HEAD
+
       <%= form.submit 'Poster le nouveau produit',class:'btn btn-primary' %> ||
       <%= link_to 'Retour', products_path,class:'btn btn-primary' %>
-=======
-      <%= form.submit 'Publier Nouveau Produit',class:'btn btn-primary' %> ||
-      <%= link_to 'Back', products_path,class:'btn btn-primary' %>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+
       <% else %>
       <%= form.submit 'Modifier',class:'btn btn-primary' %>
       <% end %>
   </div>
 <% end %>
-
-
 </div>
 </div>

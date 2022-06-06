@@ -20,7 +20,6 @@ text-justify: inter-word;
   </h4>
   </div>
 
-
   <ul class="nav justify-content-end">
     <li class="nav-item">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -48,17 +47,7 @@ text-justify: inter-word;
     </li>
       </ul>
 
-
-<<<<<<< HEAD
-=======
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "Actuel mot de passe", placeholder:"Écrivez votre mot de passe actuel" %>
-  </div>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
-
-
-  <h2>Log in</h2>
+  <h2>Insérez vos informations pour vous connecter</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -68,7 +57,7 @@ text-justify: inter-word;
 
     <div class="field">
       <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", placeholder:"Write your current passaword" %>
+      <%= f.password_field :password, autocomplete: "Actuel mot de passe", placeholder:"Écrivez votre mot de passe actuel" %>
     </div>
 
     <% if devise_mapping.rememberable? %>

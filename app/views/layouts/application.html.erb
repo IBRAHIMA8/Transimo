@@ -65,19 +65,13 @@
     </div>
 </header>
 <br><br>
-
-  <td><% if current_user.present? %>
-    <p>Cher / chère <%= current_user.name %>, salut !!! </p>
-  <% else %>
-    <p>Bonjour, cher Utilisateur !!!</p>
-
   <% if current_user.present? %>
     <p>Cher / chère <%= current_user.name %>, Salut! </p>
   <% else %>
     <p>Cher / Chère utilisateur, salut !</p>
 
   <% end %>
-  <% end %>
+
 <% if notice %>
     <h3><p class="alert alert-notice"><%= notice %></p></h3>
   <% end %>

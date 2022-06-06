@@ -1,8 +1,5 @@
 <div class="container shadow">
-
-<div class="container1 shadow">
 <h1>Faites vos recherches ici</h1>
-
         <div class="row py-3">
           <div class="col sm-3">
             <div class="col">
@@ -12,48 +9,33 @@
                 <% else %>
                 <%= f.text_field :search_title, placeholder: 'Type de maison souhaité' %>
                 <% end %>
-
                 <% if defined? @search_localisation %>
                 <%= f.text_field :search_localisation, value: @search_localisation%>
                 <% else %>
                 <%= f.text_field :search_localisation, placeholder: 'Localisation souhaitée' %>
                 <% end %>
-
-
                 <% if defined? @search_cost %>
                 <%= f.text_field :search_cost, value: @search_cost %>
                 <% else %>
                 <%= f.text_field :search_cost, placeholder: 'Prix souhaité' %>
                 <% end %>
-
                 <%= f.select :search_availability, Product.availabilities.map { |k, v| [k, v] }, class: 'search_availability form-control', prompt: 'Choisir le type de disponibilité'%>
-
                 <%= f.submit 'Lancer Recherche' ,class:'btn btn-light'%>
               <% end %>
             </div>
           </div>
         </div>
-    <div class="container1 py-3">
 
-
-      <div>
-<<<<<<< HEAD
+<div>
   <%= link_to "Trier par Localité", products_path(localisation_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
   <%= link_to "Trier par Disponibilité", products_path(availability_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
   <%= link_to "Trier par Coût du Loyer", products_path(cost_sort: "true") ,class: 'col btn btn-secondary text-light'%>
+  </div>
+<br><br>
 
-  </div>
-<br><br>
-<h1> Products list </h1>  <span><%= link_to 'Ajouter nouveau produit', new_product_path, class: 'btn btn-primary text-light' %></span>
-=======
-  <%= link_to "Trier par localité", products_path(localisation_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
-  <%= link_to "Trier par disponibilité", products_path(availability_sort: "true") ,class: 'col btn btn-secondary text-light'%> |
-  <%= link_to "Trier par coût du loyer", products_path(cost_sort: "true") ,class: 'col btn btn-secondary text-light'%>
-  </div>
-<br><br>
 <h1> LISTE GENERALE DES PRODUITS </h1>  <span><%= link_to 'Ajouter Nouveau Produit', new_product_path, class: 'btn btn-primary text-light' %></span>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
 
+<div class="container1 py-3">
 <% if @products != nil %>
 <table class="table">
  <thead>
@@ -64,13 +46,10 @@
      <th>Disponibilité</th>
        <!-- <th>Remarks</th>-->
      <th>Coût du Loyer</th>
-<<<<<<< HEAD
+
      <th>Image du produit</th>
-     <th>Auteur du produit</th>
-=======
-     <th>Image du Produit</th>
-     <th>Nom de l'auteur</th>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+     <th>Auteur</th>
+
 
      <th colspan="3"></th>
    </tr>
@@ -93,14 +72,13 @@
        <td><%= User.find(product.user_id).name %></td>
 
           <% if current_user.id == product.user.id %>
-<<<<<<< HEAD
+
         <td><%= link_to 'Modifier', edit_product_path(product), class:'btn btn-outline-warning' %></td>
-=======
-        <td><%= link_to 'Editer', edit_product_path(product), class:'btn btn-outline-warning' %></td>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
-        <td><%= link_to 'Supprimer', product, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger', id:"delete-btn" %></td>
+
+        <td><%= link_to 'Supprimer', product, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class:'btn btn-outline-danger', id:"delete-btn" %></td>
           <% else %>
         <td><%= link_to 'Voir details et commander', product_path(product.id), class:'btn btn-outline-primary' %></td>
+
         <td><%= link_to 'Ecrire au poster', conversations_path(sender_id: current_user.id, recipient_id: product.user.id), method: :post, class:'btn btn-outline-warning' %></td>
           <% end %>
      </tr>
@@ -108,12 +86,10 @@
  </tbody>
 </table>
 <% else %>
-<<<<<<< HEAD
+
    <h3><p>Pas de produit pour votre recherche</p></h3>
-=======
-   <h3><p>Pas de produits</p></h3>
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
 <% end %>
+</div>
 <hr>
-    <%= paginate @products, class:"mt-5" %>
+    <%= paginate @products, class:"pagination justify-content-center" %>
 </div>

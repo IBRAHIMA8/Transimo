@@ -216,3 +216,9 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+  views:
+    pagination:
+      next: 'Suivant'
+      previous: 'Précédant'
+      first: 'Première page'
+      last: 'Dernère page'

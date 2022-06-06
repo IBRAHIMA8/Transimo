@@ -1,7 +1,6 @@
+  <h1>Mon Inbox</h1>
 
-  <h1>My Inbox</h1>
-
-      <h3> All Conversations:</h3>
+      <h3> Mes Conversations:</h3>
       <div class="panel-body">
        <div class="item">
         <% @conversations.each do |conversation| %>
@@ -17,7 +16,7 @@
        </div>
       </div>
       <br>
-       <h1 class="panel-heading">All Users:</h1>
+       <h1 class="panel-heading"> Tous les utilisateurs:</h1>
          <% @users.each do |user| %>
           <% if user.id != current_user.id %>
            <div class="item"><h3>

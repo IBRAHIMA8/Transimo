@@ -57,7 +57,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
 
 
 
-<<<<<<< HEAD
+
 describe 'Session functionality testing' do
   before do
     #@user = FactoryBot.create(:user1)
@@ -97,15 +97,7 @@ end
   #   end
   # end
 #end
-=======
-# describe 'Session functionality testing' do
-#   before do
-#     #@user = FactoryBot.create(:user1)
-#     @user = User.create!(id:8, name: 'user8', email: 'usernew@gmail.com', password: '00000000', confirmed_at: DateTime.now)
-#     user_login
-#   end
-#
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+
 #
 #
 #
@@ -124,23 +116,14 @@ end
 #   end
 # end
 #
-<<<<<<< HEAD
+
 #     context 'Connecté(e) as a general user' do
 #       it 'General users cannot access the management screen' do
 #         user_login
 #         visit admin_users_path
 #         expect(current_path).to eq products_path
 #       end
-=======
-#
-#
-#
-#   #
-#     it 'Being able to log out' do
-#       click_link 'Se déconnecter'
-#       page.driver.browser.switch_to.alert.accept
-#       expect(current_path).to eq new_session_path
->>>>>>> a18ee69dace52d41c5220cc7c47d377b2d496544
+
 #     end
   # end
 #end

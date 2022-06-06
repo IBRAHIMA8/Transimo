@@ -1,8 +1,6 @@
 class ProductsController < ApplicationController
-# before_action :authenticate_user!
 before_action :set_product,  only: %i[ show edit update destroy ]
 skip_before_action :authenticate_user!, only: [:home]
-  # GET /products or /products.json
 
   def home
   end
@@ -41,8 +39,6 @@ end
 
         format.html { redirect_to product_url(@product), notice: "Votre produit est créé avec succès." }
 
-        format.html { redirect_to product_url(@product), notice: "Le produit a été créé avec succès." }
-
         format.json { render :show, availability: :created, location: @product }
       else
         format.html { render :new, availability: :unprocessable_entity }
@@ -50,8 +46,6 @@ end
       end
     end
   end
-
-
 
   def search
       session[:search] = {'title' => params[:search_title], 'availability' => params[:search_availability], 'localisation' => params[:search_localisation],'cost'=>params[:search_cost]}
@@ -100,7 +94,6 @@ end
           end
         end
       end
-
 
   # PATCH/PUT /products/1 or /products/1.json
   def update

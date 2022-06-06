@@ -11,15 +11,9 @@ class MessagesController < ApplicationController
     @messages = Message.where(id: @messages[-10..-1].pluck(:id))
   end
 
-
-
-
   def new
       @message = Message.new(conversation: @conversation)
   end
-
-
-
 
   if params[:m]
     @over_ten = false

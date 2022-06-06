@@ -2,13 +2,6 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  #root to: 'products#index'
-
-
-    #root to: 'homepage#home'
-
-  #default_url_options :host => "example.com"
-
   root 'products#home'
   get "products/home"
 
@@ -18,7 +11,6 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :products do

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 user = User.create(
-        name: "admin",
+        name: "Admin",
         email: "transimodimin@gmail.com",
         password: "admin123456",
         password_confirmation: "admin123456",
@@ -15,7 +15,7 @@ user = User.create(
       )
 
 user = User.create(
-        name: "guest_a",
+        name: "Invité",
         email: "transimoinvit@gmail.com",
         password: "invit123456",
         password_confirmation: "invit123456")

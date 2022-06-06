@@ -15,7 +15,7 @@ user = User.create(
       )
 
 user = User.create(
-        name: "Invité",
+        name: "Invité(e)",
         email: "transimoinvit@gmail.com",
         password: "invit123456",
         password_confirmation: "invit123456")

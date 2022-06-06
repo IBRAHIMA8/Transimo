@@ -8,17 +8,17 @@
 require 'faker'
 user = User.create(
         name: "admin",
-        email: "hadi.ibrahima@gmail.com",
-        password: "123456",
-        password_confirmation: "123456",
+        email: "transimodimin@gmail.com",
+        password: "admin123456",
+        password_confirmation: "admin123456",
         admin: true
       )
 
 user = User.create(
         name: "guest_a",
-        email: "transimoguest@gmail.com",
-        password: "guests123456",
-        password_confirmation: "guests123456")
+        email: "transimoinvit@gmail.com",
+        password: "invit123456",
+        password_confirmation: "invit123456")
 
 
 
@@ -35,22 +35,26 @@ user2 = User.create!(
   password:"123456",
   admin: false,
 )
+
 user3 = User.create!(
   name: "Adoukè3",
   email: "adouke3@example.com",
   password:"123456",
   admin: false,
 )
+
 user4 = User.create!(
+  name: "Adoukè4",
   email: "adouke4@example.com",
   password:"123456",
   admin: false,
 )
+
 user5 = User.create!(
-  name: "Adoukè3",
+  name: "Adoukè5",
   email: "adouke5@example.com",
   password:"123456",
-  admin: true,
+  admin: false,
 )
 
 conversation1 = Conversation.create!(
@@ -110,7 +114,11 @@ Message.create!(
 
 availability = ['Libre', 'Immédiatement_Libre', 'Bientôt_Libre']
 
-image = ['https://www.google.com/imgres?imgurl=https%3A%2F%2Fhgtvhome.sndimg.com%2Fcontent%2Fdam%2Fimages%2Fhgtv%2Ffullset%2F2019%2F9%2F16%2F0%2FIO_Tongue-and-Groove_Beech-Street_3.jpg.rend.hgtvcom.616.411.suffix%2F1568648112267.jpeg&imgrefurl=https%3A%2F%2Fwww.hgtv.com%2Fdesign%2Fremodel%2Finterior-remodel%2F30-tips-for-increasing-your-homes-value&tbnid=jXohUSryMxS0zM&vet=12ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygCegUIARDdAQ..i&docid=1oNiDd08yumiWM&w=616&h=411&q=home%20omage&ved=2ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygCegUIARDdAQ','https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fphotos%2Fmodern-custom-suburban-home-exterior-picture-id1255835529%3Fk%3D20%26m%3D1255835529%26s%3D170667a%26w%3D0%26h%3DkOKK0c7TSjopShSdYA8wJPro8iJm2cyrKA_wI5EcXJ0%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Ffr%2Fphoto%2Fmodern-custom-suburban-home-ext%25C3%25A9rieur-gm1255835529-367504962&tbnid=cZClq3qsPMCTVM&vet=12ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygKegUIARDwAQ..i&docid=svAali7epMUjfM&w=480&h=360&q=home%20omage&ved=2ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygKegUIARDwAQ','https://www.google.com/imgres?imgurl=https%3A%2F%2Fmccoymart.com%2Fpost%2Fwp-content%2Fuploads%2F2020%2F03%2FHome-Design-and-Plans-According-to-Vastu-Shastra-370x200.jpg&imgrefurl=https%3A%2F%2Fmccoymart.com%2Fpost%2Fvastu-shastra-home-design-plans%2F&tbnid=dnKH609zTrnxUM&vet=12ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygNegUIARD3AQ..i&docid=UhGifHIpiaYK4M&w=370&h=200&q=home%20omage&ved=2ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygNegUIARD3AQ','https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.gettyimages.com%2Fphotos%2Fmodern-home-with-swimming-pool-picture-id147205632%3Fs%3D612x612&imgrefurl=https%3A%2F%2Fwww.gettyimages.fr%2Fphotos%2Fhouse&tbnid=_PcBpKwzkTbBVM&vet=12ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygTegUIARCDAg..i&docid=pnwR5PZ-sdvxPM&w=612&h=408&q=home%20omage&ved=2ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygTegUIARCDAg','https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.distinctivehomes.com.au%2Fwp-content%2Fuploads%2F2018%2F04%2FDistinctiveHomesBackground-1.png&imgrefurl=https%3A%2F%2Fdistinctivehomes.com.au%2F&tbnid=XRUpHn6JrrelNM&vet=12ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygvegUIARDEAg..i&docid=dzO5wBJgYY-8HM&w=1191&h=650&q=home%20omage&ved=2ahUKEwiz1v2sz4_4AhUPfBoKHfjFA5IQMygvegUIARDEAg']
+image = ["https://previews.123rf.com/images/piovesempre/piovesempre1409/piovesempre140900071/31652517-villa-de-luxe-avec-piscine-%C3%A0-d%C3%A9bordement.jpg",
+"https://fotomelia.com/wp-content/uploads/edd/2015/11/banque-d-images-gratuites-libres-de-droits419-1560x1170.jpg",
+"https://previews.123rf.com/images/dotshock/dotshock1504/dotshock150400003/38541199-vue-ext%C3%A9rieure-d-une-maison-contemporaine-villa-moderne.jpg",
+"https://media.istockphoto.com/photos/modern-minimalist-family-villa-picture-id1180620728?s=612x612",
+"https://media.bazarafrique.com/upload/post/6231554ae4ef1308687605.jpg"]
 
 5.times do |i|
     Product.create(

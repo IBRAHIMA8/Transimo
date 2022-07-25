@@ -36,7 +36,7 @@
 <h1> LISTE GENERALE DES PRODUITS </h1>  <span><%= link_to 'Ajouter Nouveau Produit', new_product_path, class: 'btn btn-primary text-light' %></span>
 
 <div class="container1 py-3">
-<% if @products != nil %>
+<% if @products.present? %>
 <table class="table">
  <thead>
    <tr>

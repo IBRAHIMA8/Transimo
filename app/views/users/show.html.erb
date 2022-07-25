@@ -14,7 +14,8 @@
   <br><br><br>
 
     <table class="table">
-<% if @products != nil %>
+
+<% if @products.present? %>
   <h3>Voici la liste de vos produits</h3>
 
   <%  if current_user.id == @user.id %>

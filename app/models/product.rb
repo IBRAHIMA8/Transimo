@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
 
-  validates :title, presence: true, unless: :image?
+  validates :title,:description,:localisation,:availability, null:false, presence: true, unless: :image?
 
   mount_uploader :image, ImageUploader
 

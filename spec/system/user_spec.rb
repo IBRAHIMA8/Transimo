@@ -1,54 +1,53 @@
 require 'rails_helper'
 RSpec.describe 'User registration/login/logout function', type: :system do
   before do
+
   @user = User.create!(id:9, name: 'user9', email: "user9@gmail.com", password: "12345678", confirmed_at: DateTime.now)
+
+  @admin_user = User.create!(id:20, name: 'admin_user20', email: "admin_user20@gmail.com", password: "12345678", confirmed_at: DateTime.now, admin: true)
 
 end
 
   def user_login
     visit new_user_session_path
     find("#user_email").set('user9@gmail.com')
-    find("#user_password").set('00000000')
+    find("#user_password").set('12345678')
     click_button 'Connecté(e)'
   end
 
   def admin_user_login
     visit new_user_session_path
-    find("#user_email").set('admin9@gmail.com')
-    find("#user_password").set('99999999')
+    find("#user_email").set('admin_user20@gmail.com')
+    find("#user_password").set('12345678')
     click_button 'Connecté(e)'
 end
-#
 
-#     describe 'User registration test' do
-#     context 'If the user is not logged in' do
-#     it 'should register new user' do
-#     visit new_user_registration_path
-#     click_on "S'inscrire"
-#     fill_in 'user[name]', with: 'userexample'
-#     fill_in 'user[email]', with: 'userexample@gmail.com'
-#     fill_in 'user[password]', with: '00000000'
-#     fill_in 'user[password_confirmation]', with: '00000000'
-#     click_on 'Enregistré(e)'
-#     expect(page).to have_content 'Bienvenue ! Vous vous êtes bien enregistré(e).'
-#   end
-#         it 'should jump to login screen when not logged in' do
-#      visit products_path
-#      expect(current_path).to eq new_user_session_path
-#    end
-#    it 'should not be able to access the management screen' do
-#    visit new_user_session_path
-#    fill_in 'user[email]', with: 'userexample@gmail.com'
-#    fill_in 'user[password]', with: '00000000'
-#    click_button 'Connecté(e)'
-#    visit rails_admin_path
-#    expect(page).to_not have_content 'List Of Users'
-#   end
-# end
-# end
-
-
-
+    describe 'User registration test' do
+    context 'If the user is not logged in' do
+    it 'should register new user' do
+    visit new_user_registration_path
+    click_on "S'inscrire"
+    fill_in 'user[name]', with: 'userexample'
+    fill_in 'user[email]', with: 'userexample@gmail.com'
+    fill_in 'user[password]', with: '00000000'
+    fill_in 'user[password_confirmation]', with: '00000000'
+    click_on 'Enregistré(e)'
+    expect(page).to have_content 'Bienvenue ! Vous vous êtes bien enregistré(e).'
+  end
+        it 'should jump to login screen when not logged in' do
+     visit products_path
+     expect(current_path).to eq new_user_session_path
+   end
+   it 'should not be able to access the management screen' do
+   visit new_user_session_path
+   fill_in 'user[email]', with: 'userexample@gmail.com'
+   fill_in 'user[password]', with: '00000000'
+   click_button 'Connecté(e)'
+   visit rails_admin_path
+   expect(page).to_not have_content 'List Of Users'
+  end
+end
+end
 
 
 
@@ -66,95 +65,40 @@ end
 
      context 'Log in as general user.' do
       it 'You can jump to your own details screen' do
-        click_button 'Ma page'
-        # find("#Ma page").click
+        visit "/users/9"
          expect(current_path).to eq user_path(9)
       end
-    #
-      it 'Test for displayed task list ouce the general user jump to the details screen of another person.' do
-        visit user_path(9)
-        expect(current_path).to eq products_path
-      end
+    end
 
       it 'Being able to log out' do
-        click_link 'Se déconnecter'
-        page.driver.browser.switch_to.alert.accept
-        expect(current_path).to eq new_user_session_path
+        find("#déconnecter").click
+        expect(current_path).to eq root_path
       end
-    end
+
+   it 'General user should not be able to access the management screen' do
+   visit rails_admin_path
+   expect(page).to_not have_content 'Liste des Utilisateur'
+ end
+end
+    context "If there are no admin users" do
+      # before do
+      #   admin_user_login
+      # end
+
+  it 'Administrators should be able to access the management screen' do
+    admin_user_login
+    visit rails_admin_path
+    expect(current_path).to eq rails_admin_path
+  end
+
+  it 'The administrator should have access to the user\'s details screen' do
+    admin_user_login
+    visit "/users/9"
+    expect(current_path).to eq user_path(9)
+  end
+end
 end
 
-
-
-
-
-
-#
-#
-#      context 'Log in as general user.' do
-#            it 'You can jump to your own details screen' do
-#              click_link 'Ma page'
-#               expect(current_path).to eq user_path(1)
-#            end
-#
-#            it 'Test for displayed task list ouce the general user jump to the details screen of another person.' do
-#              visit user_path(2)
-#              expect(current_path).to eq products_path
-#            end
-#
-#            it 'Being able to log out' do
-#              click_link 'Se déconnecter'
-#              page.driver.browser.switch_to.alert.accept
-#              expect(current_path).to eq new_user_session_path
-#            end
-#          end
-#        end
-#
-#
-#
-#
-#
-# #    it 'should not be able to access the management screen' do
-# #    visit new_user_session_path
-# #    find("#user_email").set('user9@gmail.com')
-# #    find("#user_password").set('12345678')
-# #    click_button 'Connecté(e)'
-# #    visit rails_admin_path
-# #    expect(page).to_not have_content 'Liste des Utilisateur'
-# #  end
-# # end
-#
-#
-#  it 'should be able to log in and log out' do
-#    visit '/'
-#    find("#user_email").set('user9@gmail.com')
-#    find("#user_password").set('12345678')
-#     click_button 'Connecté(e)'
-#  expect(page).to have_content '~LS~'
-#  accept_alert do
-#      find("#log").click
-#   end
-#  expect(page).to have_content 'Connecté(e)'
-# end
-
-
-#
-#  describe "Management screen test" do
-#     context "If there are no admin users" do
-#       it "be able to access management page" do
-#         user = User.create(name: "huss", email: "huss1@gmail.com", password: "12345678", password_confirmation: "12345678", admin: true)
-#         visit '/'
-#         fill_in "Email", with: "huss1@gmail.com"
-#         fill_in "Password", with: "12345678"
-#         click_button 'Log in'
-#         visit rails_admin_path
-#         expect(page).to have_content "Users"
-#     end
-#   end
-# end
-#  end
-# end
-end
 
 
 

@@ -1,10 +1,10 @@
 #require 'factory_bot'
 FactoryBot.define do
   factory :user do
-    id { 1 }
+    id { 9 }
    name { 'user' }
-   email { 'user@gmail.com' }
-   password { '00000000' }
+   email { 'user9@gmail.com' }
+   password { '12345678' }
    admin { false }
  end
  factory :user1 do

@@ -1,4 +1,4 @@
-RailsAdmin.config do |config|
+  RailsAdmin.config do |config|
   config.asset_source = :webpacker
 
   ### Popular gems integration
@@ -10,7 +10,7 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-   config.authorize_with :cancancan
+   #config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -24,6 +24,20 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+
+
+config.authorize_with do |controller|
+    if current_user==nil
+      redirect_to main_app.new_user_session_path, flash: {error: "#{I18n.t('devise.failure.unauthenticated')}"}
+    elsif current_user.admin==false
+      redirect_to main_app.root_path, flash: {error:  "#{I18n.t('devise.failure.not_admin')}"}
+    end
+  end
+
+
+
+
+#
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -39,4 +53,4 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-end
+ end
